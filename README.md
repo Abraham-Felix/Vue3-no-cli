@@ -1,3 +1,3 @@
-# go-vue [ more like vuelang ] 
+# Vuelang 
 
 Vuelang comunication app comming soon! 
