@@ -20,7 +20,7 @@ const RegistrationForm = {
     <text-input label="State/Province" name="province" required="true" type="text" ></text-input>
     <text-input label="Zip/Postal" name="zip" required="true" type="text" ></text-input>
 
-    <check-input @click="addressSame" label="Mailing address same" checked="true" v-model="addressSameChecked">  </check-input>
+    <check-input class="mt-3" @click="addressSame" label="Mailing address same" checked="true" v-model="addressSameChecked">  </check-input>
 
     <div v-if="addressSameChecked === false">
       <div class="mt-3">
