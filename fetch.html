@@ -14,7 +14,14 @@
       <div class="row">
         <div class="col">
           <div class="" id="app">
-
+            <ul>
+              <book-item
+                 v-for="item in books.results"
+                 v-bind:book="item"
+                 v-bind:key="item.id"
+                 v-bind:id="item.id"
+              ></book-item>
+            </ul>
           </div>
 
         </div>
@@ -29,6 +36,18 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha256-cMPWkL3FzjuaFSfEYESYmjF25hCIL6mfRSPnW8OVvM4=" crossorigin="anonymous"></script>
     <script type="text/javascript">
 
+      const BookItem = {
+        props: ["book"],
+        template: `
+          <li class="List-group-item d-flex justify-content-between align-items-start">
+            <div class="ms-2 me-auto">
+              <div class="fw-bold">{{ book.title }}</div>
+              {{book.authors[0].name}}
+              </div>
+          </li>
+        `
+      }
+
       let data = {
           books: {
             results: [],
@@ -38,6 +57,9 @@
         data() {
           return data
         },
+        components: {
+          'book-item': BookItem
+        },
         // proper vue life cicle to fetch data is on mounted
         mounted() {
           console.log("mounted");
@@ -45,6 +67,7 @@
           .then(response => response.json())
           .then(data => {
              this.books = data;
+             //start on 0 and sum 1 on 1 for each result in the array
              for (let i = 0; i < this.books.results.length; i++) {
                console.log("id", this.books.results[i].id, "title", this.books.results[i].title)
              }
