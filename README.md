@@ -1,3 +1,4 @@
-# Vuelang 
+# Vue 3 template
 
-Vuelang comunication app comming soon! 
+- Using vue 3 & api fetch
+- Not using the cli
